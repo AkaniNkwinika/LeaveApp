@@ -1,0 +1,21 @@
+﻿@model List<LeaveApp.Models.LeaveRequest>
+
+<h2>My Leave Requests</h2>
+<table class="table">
+    <tr>
+        <th>Type</th>
+        <th>Start</th>
+        <th>End</th>
+        <th>Status</th>
+    </tr>
+    @foreach (var leave in Model)
+    {
+        <tr>
+            <td>@leave.LeaveType</td>
+            <td>@leave.StartDate.ToShortDateString()</td>
+            <td>@leave.EndDate.ToShortDateString()</td>
+            <td>@leave.Status</td>
+        </tr>
+    }
+</table>
+<a href="@Url.Action("ApplyLeave")" class="btn btn-primary">Apply for Leave</a>
